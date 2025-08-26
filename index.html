@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document Formatter</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .instructions { background: #f0f8ff; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        textarea { font-family: Arial, sans-serif; }
+        button { background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Format Your Document</h2>
+    
+    <div class="instructions">
+        <h3>How to use:</h3>
+        <p>1. In your Google Doc, mark text with symbols like [this] or {this}</p>
+        <p>2. Copy and paste your document below</p>
+        <p>3. Tell us what each symbol means in plain English</p>
+        <p><b>Example:</b> "[] means make it bold" or "{} means make it italic"</p>
+    </div>
+    
+    <form action="http://localhost:5678/webhook-test/format-document" method="post">
+        <p>
+            <label><b>Your Document Text:</b></label><br>
+            <textarea name="document_text" rows="12" cols="80" placeholder="Paste your document here. Make sure you've marked parts with symbols like [this] or {this}" required></textarea>
+        </p>
+        
+        <p>
+            <label><b>What do your symbols mean? (Use simple English)</b></label><br>
+            <textarea name="instructions" rows="6" cols="80" placeholder="Example:
+[] means make it bold
+{} means make it italic
+<> means underline it
+() means highlight in yellow">[] means make it bold
+{} means make it italic
+<> means underline it</textarea>
+        </p>
+        
+        <p>
+            <button type="submit">Format My Document</button>
+        </p>
+    </form>
+    
+    <div class="instructions">
+        <h3>Example Document:</h3>
+        <p><i>This is [very important information] that everyone should know.<br>
+        The {key findings} from our research are listed below.<br>
+        Please <remember this deadline> for the project.</i></p>
+        
+        <h3>Example Instructions:</h3>
+        <p><i>[] means make it bold<br>
+        {} means make it italic<br>
+        <> means underline it</i></p>
+    </div>
+</body>
+</html>
